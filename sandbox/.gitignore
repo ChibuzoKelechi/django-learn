@@ -1,2 +1,5 @@
 /learn/__pycache__
 /sandbox/__pycache__
+# /learn/migrations/__pycache__
+/learn/migrations
+sandbox/db.sqlite3
