@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>First django</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% comment %} <link rel="stylesheet" href="index.css"> {% endcomment %}
+    </head>
+    <body>
+      {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+            <h3>Question</h3>
+                {% comment %} <li>
+                    <a href="{% url 'learn:details' question_id %}">{{ question.query_text }}</a>
+                </li> {% endcomment %}
+                <li>
+                    <a href="{% url 'learn:details' question.id %}">{{ question.query_text }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No questions are available.</p>
+      {% endif %}
+    </body>
+</html>

@@ -8,7 +8,7 @@ class Question(models.Model):
     q_date = models.DateTimeField('Date Asked')
     
     def __str__(self):
-        return f'{str(self.query_text)}'
+        return self.query_text 
     
     def asked_recent(self):
         return self.q_date >= timezone.now() - datetime.timedelta(days=1)
