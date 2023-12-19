@@ -7,14 +7,26 @@
         <title>Questions</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/learn/index.css' %}">    </head>
     <body>
-        <h1> {{question.query_text}} </h1>
-        <ul>
+                <form action="{% url 'learn:votes' question.id %}" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><h1>{{ question.query_text }}</h1></legend>
+                        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                        {% for choice in question.answer_set.all %}
+                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                        {% endfor %}
+                    </fieldset>
+                    <input type="submit" value="Vote" class="vote">
+                </form>
+          
+        {% comment %} <ol>
             {% for choice in question.answer_set.all %}
-                <li> {{ answer.choice_text }} </li>
+                <li> {{ answer.choice_text }} </li>          
             {% endfor %}
-        </ul>
+        </ol> {% endcomment %}
     </body>
 </html>

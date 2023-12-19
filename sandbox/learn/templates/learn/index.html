@@ -6,21 +6,20 @@
         <title>First django</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% comment %} <link rel="stylesheet" href="index.css"> {% endcomment %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/learn/index.css' %}">
     </head>
+  
     <body>
       {% if latest_question_list %}
-        <ul>
+        <ol class='list'>
             {% for question in latest_question_list %}
-            <h3>Question</h3>
-                {% comment %} <li>
-                    <a href="{% url 'learn:details' question_id %}">{{ question.query_text }}</a>
-                </li> {% endcomment %}
+            {% comment %} <h3>Question {{ question.id }}</h3> {% endcomment %}
                 <li>
-                    <a href="{% url 'learn:details' question.id %}">{{ question.query_text }}</a>
+                  <a href="{% url 'learn:details' question.id %}">{{ question.query_text }}</a>
                 </li>
             {% endfor %}
-        </ul>
+        </ol>
         {% else %}
         <p>No questions are available.</p>
       {% endif %}

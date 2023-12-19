@@ -6,16 +6,15 @@
         <title>Blank</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/learn/index.css' %}">  
         <style>
-            body{
-                color: white;
-                font: sans-serif;
-                background-color: black;
+            h1{
+                font: 0.8rem;
             }
-        </style>
+        </style>   
     </head>
     <body>
-        <h1> I am a Django developer </h1>
+        <h1> I am a {{field}} developer using {{framework}}.....whether you like it or not</h1>
     </body>
 </html>
