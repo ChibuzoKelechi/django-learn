@@ -3,21 +3,23 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Results</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        {% load static %}
+        <link rel="stylesheet" href="{% static '/learn/index.css' %}">
     </head>
     <body>
         <h1>{{ question.query_text }}</h1>
 
             <ul>
-                {% for choice in question.choice_set.all %}
-                    <li>{{ choice.answer_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+                {% for choice in question.answer_set.all %}
+                    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
                 {% endfor %}
             </ul>
 
             <a href="{% url 'learn:details' question.id %}">Choose again?</a>
+            <br/>
             <a href="/learn/"> Return Home </a>
 
     </body>

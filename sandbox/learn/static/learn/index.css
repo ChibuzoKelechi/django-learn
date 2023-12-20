@@ -1,6 +1,7 @@
 a:link{
     color: white;
     font-size: 1.3rem;
+    text-decoration: dotted;
 }
 
 a:visited{
@@ -15,7 +16,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
-    background-image: linear-gradient(rgba(0, 0,0,0.6), black), url('gojopurple.jpg');
+    background-image: linear-gradient(rgba(0, 0,0,0.6), black), url('dj_code_screenshot.png');
     /* linear-gradient(rgba(0, 0,0,0.3), black), */
 }
 
